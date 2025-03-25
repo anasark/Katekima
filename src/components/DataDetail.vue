@@ -21,18 +21,31 @@ const props = defineProps<{
         </tr>
       </thead>
       <tbody v-if="props.berry">
-        <tr v-for="(value, key) in props.berry" :key="key" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <tr
+          v-for="(value, key) in props.berry"
+          :key="key"
+          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
+        >
           <td class="px-6 py-4">{{ key }}</td>
           <td class="px-6 py-4">
             <template v-if="key === 'flavors'">
               <ul>
-                <li v-for="(item, index) in value" :key="index">
-                  <a :href="item.flavor.url" class="underline underline-offset-2 cursor-pointer">{{ item.flavor.name }}</a>: {{ item.potency }}
+                <li v-for="(item, index) in value as any[]" :key="index">
+                  <a :href="item.flavor.url" class="underline underline-offset-2 cursor-pointer">
+                    {{ item.flavor.name }}
+                  </a>
+                  : {{ item.potency }}
                 </li>
               </ul>
             </template>
             <template v-else-if="typeof value === 'object' && value !== null">
-              <a class="underline underline-offset-2 cursor-pointer" :href="value.url">{{ value.name }}</a>
+              <a
+                v-if="'url' in value && 'name' in value"
+                class="underline underline-offset-2 cursor-pointer"
+                :href="value.url"
+              >
+                {{ value.name }}
+              </a>
             </template>
             <template v-else>
               {{ value }}
@@ -48,3 +61,4 @@ const props = defineProps<{
     </table>
   </div>
 </template>
+

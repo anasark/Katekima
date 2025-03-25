@@ -11,6 +11,7 @@ import DataDetail from "../components/DataDetail.vue";
 const store = useBerryStore();
 const router = useRouter();
 const id = ref<number | null>(null);
+const name = ref<string>('');
 const loading = ref<boolean>(false);
 const detail = ref<BerryDetails | null>(null);
 
@@ -50,6 +51,7 @@ const getDetail = async (idBerry: number) => {
 
   try {
     detail.value = await store.fetchBerryDetails(idBerry);
+    name.value = detail.value.name;
   } catch (error) {
     console.error("Error fetching berry details:", error);
   } finally {
@@ -72,7 +74,7 @@ const showDetail = async (url: string) => {
   <DataTable :onDetail="showDetail" class="mt-5"/>
   <Modal
     :showModal="detail != null"
-    modalTitle="Mukidi"
+    :modalTitle="`Detail of ${name}`"
     :closeModal="closeModal"
   >
     <DataDetail :berry="detail" :loading="loading" />
