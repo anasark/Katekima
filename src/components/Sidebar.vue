@@ -14,14 +14,17 @@ const isActive = (path: string) => {
     <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
       <ul class="space-y-2 font-medium">
         <li>
+          <span class="flex items-center p-2 rounded-lg text-gray-700 truncate dark:text-gray-400 group">Soal 1</span>
+        </li>
+        <li>
           <router-link 
             to="/list-table" 
-            class="flex items-center p-2 rounded-lg dark:text-white group" 
+            class="flex items-center p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white group" 
             :class="{ 'bg-gray-100 dark:bg-gray-700': isActive('/list-table') }" 
             active-class="bg-gray-100 dark:bg-gray-700" 
           >
             <svg 
-              class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" 
+              class="w-5 h-5 transition duration-75 text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white" 
               aria-hidden="true" 
               xmlns="http://www.w3.org/2000/svg" 
               fill="currentColor" 
@@ -36,17 +39,38 @@ const isActive = (path: string) => {
         <li>
           <router-link 
             to="/detail" 
-            class="flex items-center p-2 rounded-lg dark:text-white group" 
+            class="flex items-center p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white group" 
             active-class="bg-gray-100 dark:bg-gray-700" 
           >
             <svg 
-              class="w-6 h-6 text-gray-800 dark:text-white" 
+              class="w-6 h-6 transition duration-75 text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white" 
               aria-hidden="true" 
               xmlns="http://www.w3.org/2000/svg" 
               fill="none" 
               viewBox="0 0 21 21"
             >
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6.072 10.072 2 2 6-4m3.586 4.314.9-.9a2 2 0 0 0 0-2.828l-.9-.9a2 2 0 0 1-.586-1.414V5.072a2 2 0 0 0-2-2H13.8a2 2 0 0 1-1.414-.586l-.9-.9a2 2 0 0 0-2.828 0l-.9.9a2 2 0 0 1-1.414.586H5.072a2 2 0 0 0-2 2v1.272a2 2 0 0 1-.586 1.414l-.9.9a2 2 0 0 0 0 2.828l.9.9a2 2 0 0 1 .586 1.414v1.272a2 2 0 0 0 2 2h1.272a2 2 0 0 1 1.414.586l.9.9a2 2 0 0 0 2.828 0l.9-.9a2 2 0 0 1 1.414-.586h1.272a2 2 0 0 0 2-2V13.8a2 2 0 0 1 .586-1.414Z"/>
+            </svg>
+            <span class="ms-3">Detail</span>
+          </router-link>
+        </li>
+        <li>
+          <span class="flex items-center p-2 rounded-lg text-gray-700 truncate dark:text-gray-400 group">Soal 2</span>
+        </li>
+        <li>
+          <router-link 
+            to="/table-detail" 
+            class="flex items-center p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white group" 
+            active-class="bg-gray-100 dark:bg-gray-700" 
+          >
+            <svg
+              class="w-6 h-6 transition duration-75 text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 16 20"
+            >
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 17V2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M5 15V1m8 18v-4"/>
             </svg>
             <span class="ms-3">Detail</span>
           </router-link>
